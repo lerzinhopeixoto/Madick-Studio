@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbearia Madick</title>
+
+  <!-- PWA: ícone e cor da barra do celular -->
+  <meta name="theme-color" content="#1A1209">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="img/icon.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========== NAVEGAÇÃO ========== -->
+<nav>
+  <div class="nav-logo">Madick<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#agendamento">Contato</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('agendamento').scrollIntoView({behavior:'smooth'})">Agendar</button>
+</nav>
+
+<!-- ========== HERO ========== -->
+<div class="hero" id="inicio">
+
+  <!-- Foto esquerda -->
+  <div class="hero-photo">
+    <img id="img1" src="img/foto1.jpg" alt="Barbeiro Madick — corte de precisão">
+    <div class="hero-overlay"></div>
+    <div class="photo-label">Precisão em cada detalhe</div>
+  </div>
+
+  <!-- Foto direita -->
+  <div class="hero-photo">
+    <img id="img2" src="img/foto2.jpg" alt="Barbeiro Madick — fade moderno">
+    <div class="hero-overlay"></div>
+    <div class="photo-label">Arte e estilo</div>
+  </div>
+
+  <!-- Logo central sobreposto -->
+  <div class="hero-center">
+    <div class="hero-center-line"></div>
+    <div class="hero-badge">Est. desde 2010</div>
+    <div class="hero-logo-big">
+      Madick
+      <em>Barbearia</em>
+    </div>
+    <div class="hero-center-line2"></div>
+  </div>
+
+  <!-- Stats + botões no rodapé do hero -->
+  <div class="hero-bottom">
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">+500</div>
+        <div class="stat-label">Clientes</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Anos de experiência</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Satisfação</div>
+      </div>
+    </div>
+    <div class="hero-cta-group">
+      <button class="btn-primary" onclick="document.getElementById('agendamento').scrollIntoView({behavior:'smooth'})">Agendar Horário</button>
+      <button class="btn-secondary" onclick="document.getElementById('servicos').scrollIntoView({behavior:'smooth'})">Ver Serviços</button>
+    </div>
+  </div>
+
+</div><!-- /hero -->
+
+<!-- ========== SERVIÇOS ========== -->
+<section class="services" id="servicos">
+  <div class="section-label">O que oferecemos</div>
+  <div class="section-title">Nossos <em>Serviços</em></div>
+  <div class="divider-gold"></div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Sobrancelha</div>
+      <div class="service-desc">Design e acabamento de sobrancelha com navalha.</div>
+      <div class="service-price">R$30 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💈</div>
+      <div class="service-name">Pezinho</div>
+      <div class="service-desc">Acabamento no pezinho com precisão e capricho.</div>
+      <div class="service-price">R$25 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🪒</div>
+      <div class="service-name">Barba</div>
+      <div class="service-desc">Modelagem e acabamento de barba com navalha e toalha quente.</div>
+      <div class="service-price">R$40 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Corte Simples</div>
+      <div class="service-desc">Corte tradicional com acabamento impecável para o dia a dia.</div>
+      <div class="service-price">R$40 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Corte na Tesoura</div>
+      <div class="service-desc">Técnica clássica de tesoura para um resultado refinado.</div>
+      <div class="service-price">R$70 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💎</div>
+      <div class="service-name">Corte + Sobrancelha</div>
+      <div class="service-desc">Combo corte e design de sobrancelha no mesmo atendimento.</div>
+      <div class="service-price">R$50 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">👑</div>
+      <div class="service-name">Corte + Barba</div>
+      <div class="service-desc">O combo mais pedido: corte completo com barba bem feita.</div>
+      <div class="service-price">R$70 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🔱</div>
+      <div class="service-name">Corte + Barba + Sobrancelha</div>
+      <div class="service-desc">O pacote completo para sair impecável da cadeira.</div>
+      <div class="service-price">R$80 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">⚗️</div>
+      <div class="service-name">Progressiva</div>
+      <div class="service-desc">Alisamento com produtos premium para resultado duradouro.</div>
+      <div class="service-price">R$90 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🌟</div>
+      <div class="service-name">Luzes</div>
+      <div class="service-desc">Mechas e luzes para um visual moderno e estiloso.</div>
+      <div class="service-price">R$90 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <div class="service-name">Tintura</div>
+      <div class="service-desc">Coloração completa com produtos de alta qualidade.</div>
+      <div class="service-price">R$80 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🧴</div>
+      <div class="service-name">Alizante</div>
+      <div class="service-desc">Tratamento alisante para fios mais lisos e controlados.</div>
+      <div class="service-price">R$60 <span>/ sessão</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💛</div>
+      <div class="service-name">Platinado</div>
+      <div class="service-desc">Descoloração e platinado com técnica especializada.</div>
+      <div class="service-price">R$200 <span>/ sessão</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== GALERIA ========== -->
+<section class="gallery" id="galeria">
+  <div class="section-label">Nosso trabalho</div>
+  <div class="section-title">A Galeria <em>Madick</em></div>
+  <div class="divider-gold"></div>
+
+  <div class="gallery-grid">
+    <div class="gallery-photo">
+      <img id="gimg1" src="img/foto1.jpg" alt="Corte de precisão">
+      <div class="gallery-photo-overlay"></div>
+      <div class="gallery-photo-label">
+        <strong>Corte de Precisão</strong>
+        Navalha &amp; Tesoura
+      </div>
+    </div>
+    <div class="gallery-photo">
+      <img id="gimg2" src="img/foto2.jpg" alt="Fade moderno">
+      <div class="gallery-photo-overlay"></div>
+      <div class="gallery-photo-label">
+        <strong>Fade Moderno</strong>
+        Máquina &amp; Acabamento
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AGENDAMENTO ========== -->
+<section class="booking" id="agendamento">
+  <div class="booking-grid">
+
+    <!-- Formulário -->
+    <div>
+      <div class="section-label">Agende agora</div>
+      <div class="section-title">Reserve seu <em>Horário</em></div>
+      <div class="divider-gold"></div>
+
+      <form class="booking-form" onsubmit="handleBooking(event)">
+        <div class="form-group">
+          <label class="form-label">Nome completo</label>
+          <input type="text" name="nome" class="form-input" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp</label>
+          <input type="tel" name="tel" class="form-input" placeholder="(11) 99999-9999" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Data</label>
+            <input type="date" name="data" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Horário</label>
+            <select name="horario" class="form-input">
+              <option>09:00</option><option>10:00</option><option>11:00</option>
+              <option>13:00</option><option>14:00</option><option>15:00</option>
+              <option>16:00</option><option>17:00</option><option>18:00</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Serviço</label>
+          <select name="servico" class="form-input">
+            <option>Sobrancelha — R$30</option>
+            <option>Pezinho — R$25</option>
+            <option>Barba — R$40</option>
+            <option>Corte simples — R$40</option>
+            <option>Corte na tesoura — R$70</option>
+            <option>Corte + sobrancelha — R$50</option>
+            <option>Corte + barba — R$70</option>
+            <option>Corte + barba + sobrancelha — R$80</option>
+            <option>Progressiva — R$90</option>
+            <option>Luzes — R$90</option>
+            <option>Tintura — R$80</option>
+            <option>Alizante — R$60</option>
+            <option>Platinado — R$200</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" style="margin-top:1rem;width:100%;padding:1.2rem">
+          Confirmar Agendamento
+        </button>
+      </form>
+    </div>
+
+    <!-- Info -->
+    <div>
+      <div class="section-label">Funcionamento</div>
+      <div style="margin-top:1rem">
+        <div class="hours-row"><span class="hours-day">Segunda — Sexta</span><span>09h às 19h</span></div>
+        <div class="hours-row"><span class="hours-day">Sábado</span><span>08h às 18h</span></div>
+        <div class="hours-row"><span class="hours-day">Domingo</span><span>Fechado</span></div>
+      </div>
+
+      <div class="section-label" style="margin-top:2.5rem">Onde estamos</div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <!-- ⚠️ Troque pelo endereço real -->
+          <span>Rua saverio Quadrio 252, São Paulo, Brazil 05571190</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <!-- ⚠️ Troque pelo número real -->
+          <span>(11) 992037912</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📸</div>
+          <span>@barbeariamadick</span>
+        </div>
+      </div>
+
+      <div class="whatsapp-box">
+        <h3>💬 Prefere pelo WhatsApp?</h3>
+        <p>Mande uma mensagem diretamente para agendar ou tirar dúvidas.</p>
+        <button onclick="openWhatsApp()" class="btn-primary" style="margin-top:1rem;font-size:0.75rem;padding:0.8rem 1.5rem">
+          Falar no WhatsApp
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div>
+    <div class="footer-logo">Madick.</div>
+    <div class="footer-sub">A arte do corte perfeito</div>
+  </div>
+  <div class="footer-copy">© 2025 Barbearia Madick. Todos os direitos reservados.</div>
+  <div class="footer-social">
+    <a class="social-btn" href="#" title="Instagram">IG</a>
+    <a class="social-btn" href="#" title="WhatsApp">WA</a>
+    <a class="social-btn" href="#" title="Facebook">FB</a>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
