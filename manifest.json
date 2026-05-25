@@ -9,27 +9,27 @@
   "orientation": "portrait",
   "lang": "pt-BR",
   "scope": "/",
-  "icons": [
+ "icons": [
     {
-      "src": "/img/launchericon-192x192.png",
+      "src": "/img/maskable_icon_x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/img/launchericon-192x192.png",
+      "src": "/img/maskable_icon_x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/img/launchericon-512x512.png",
+      "src": "/img/maskable_icon_x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/img/launchericon-512x512.png",
+      "src": "/img/maskable_icon_x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
