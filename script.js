@@ -68,7 +68,7 @@ function handleBooking(e) {
 /* === WHATSAPP === */
 function openWhatsApp(mensagem) {
   /* ⚠️ TROQUE pelo número real com DDD + 9 dígitos, sem espaços ou traços */
-  var NUMERO = '5511999999999';
+  var NUMERO = '11992037912';
 
   var texto = mensagem || 'Olá! Gostaria de agendar um horário na Barbearia Madick 💈';
   var url = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(texto);
