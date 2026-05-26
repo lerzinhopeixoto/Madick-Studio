@@ -1,14 +1,14 @@
-const CACHE_NAME = "madick-cache-v1";
+const CACHE_NAME = "madick-cache-v2"; // Mudei para v2 para forçar a limpeza do cache antigo
 
-// Arquivos essenciais do site (precache)
+// Arquivos essenciais do site (precache) - Atualizado com os nomes novos!
 const FILES_TO_CACHE = [
   "/",
   "/index.html",
   "/style.css",
   "/script.js",
   "/manifest.json",
-  "/img/launchericon-192x192.png",
-  "/img/launchericon-512x512.png",
+  "/img/maskable_icon_x192.png",
+  "/img/maskable_icon_x512.png",
   "/img/foto1.jpg",
   "/img/foto2.jpg"
 ];
@@ -21,7 +21,7 @@ self.addEventListener("install", (event) => {
     })
   );
 
-  self.skipWaiting(); // ativa imediatamente
+  self.skipWaiting(); // Ativa imediatamente o service worker novo
 });
 
 // ACTIVATE - remove cache antigo
@@ -36,7 +36,7 @@ self.addEventListener("activate", (event) => {
     })
   );
 
-  self.clients.claim(); // assume controle da página
+  self.clients.claim(); // Assume o controle da página na hora
 });
 
 // FETCH - estratégia offline-first
