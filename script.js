@@ -3,7 +3,7 @@ console.log("Firebase conectado!", db);
 import {
   collection,
   addDoc
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+}from "https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js";
 console.log("Firebase carregado");
 console.log("DB:", db);
 
@@ -26,7 +26,7 @@ window.handleBooking = async function (e) {
     alert("Preencha todos os campos obrigatórios.");
     return;
   }
-  
+
 alert("Tentando salvar no Firebase...");
 
   try {
@@ -50,12 +50,12 @@ alert("Tentando salvar no Firebase...");
 🕐 Horário: ${horario}
 💈 Serviço: ${servico}`;
 
-    btn.textContent = 'Redirecionando...';
+btn.textContent = 'Redirecionando...';
 
-    setTimeout(() => {
-      window.location.href =
-        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-    }, 500);
+const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+window.open(url, '_blank');
+
+   
 
   } catch (error) {
     console.error(error);
