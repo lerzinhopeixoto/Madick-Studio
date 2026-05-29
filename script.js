@@ -7,8 +7,6 @@ import {
   where
 } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js";
 
-const WHATSAPP_NUMBER = '5511992037912';
-
 window.handleBooking = async function (e) {
   e.preventDefault();
 
@@ -27,7 +25,6 @@ window.handleBooking = async function (e) {
   }
 
   try {
-    // Verifica se horário já está ocupado
     const q = query(
       collection(db, "agendamentos"),
       where("data", "==", data),
@@ -40,26 +37,7 @@ window.handleBooking = async function (e) {
       return;
     }
 
-    const dataFormatada = new Date(data + 'T12:00:00').toLocaleDateString('pt-BR');
-
-    const msg = `✂️ *Agendamento - Barbearia Madick*
-
-👤 Nome: ${nome}
-📱 WhatsApp: ${tel}
-📅 Data: ${dataFormatada}
-🕐 Horário: ${horario}
-💈 Serviço: ${servico}`;
-
     btn.textContent = 'Agendando...';
-
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-    const link = document.createElement('a');
-    link.href = url;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
 
     await addDoc(collection(db, "agendamentos"), {
       nome,
@@ -70,6 +48,7 @@ window.handleBooking = async function (e) {
       criadoEm: new Date()
     });
 
+    const dataFormatada = new Date(data + 'T12:00:00').toLocaleDateString('pt-BR');
     mostrarMensagem(`✅ Agendamento confirmado! Te esperamos no dia ${dataFormatada} às ${horario}.`, "sucesso");
     e.target.reset();
 
