@@ -4,6 +4,9 @@ import {
   collection,
   addDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+console.log("Firebase carregado");
+console.log("DB:", db);
+
 
 const WHATSAPP_NUMBER = '5511992037912';
 
