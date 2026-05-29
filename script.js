@@ -1,7 +1,10 @@
 import { db } from './firebase.js';
 import {
   collection,
-  addDoc
+  addDoc,
+  getDocs,
+  query,
+  where
 } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js";
 
 const WHATSAPP_NUMBER = '5511992037912';
@@ -24,6 +27,19 @@ window.handleBooking = async function (e) {
   }
 
   try {
+    // Verifica se horário já está ocupado
+    const q = query(
+      collection(db, "agendamentos"),
+      where("data", "==", data),
+      where("horario", "==", horario)
+    );
+    const snap = await getDocs(q);
+
+    if (!snap.empty) {
+      mostrarMensagem("❌ Esse horário já está ocupado! Escolha outro.", "erro");
+      return;
+    }
+
     const dataFormatada = new Date(data + 'T12:00:00').toLocaleDateString('pt-BR');
 
     const msg = `✂️ *Agendamento - Barbearia Madick*
@@ -34,7 +50,7 @@ window.handleBooking = async function (e) {
 🕐 Horário: ${horario}
 💈 Serviço: ${servico}`;
 
-    btn.textContent = 'Redirecionando...';
+    btn.textContent = 'Agendando...';
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
     const link = document.createElement('a');
@@ -54,10 +70,35 @@ window.handleBooking = async function (e) {
       criadoEm: new Date()
     });
 
-   } catch (error) {
+    mostrarMensagem(`✅ Agendamento confirmado! Te esperamos no dia ${dataFormatada} às ${horario}.`, "sucesso");
+    e.target.reset();
+
+  } catch (error) {
     console.error(error);
-    alert("Erro ao salvar agendamento.");
+    mostrarMensagem("❌ Erro ao agendar. Tente novamente.", "erro");
   }
 
   btn.textContent = original;
 };
+
+function mostrarMensagem(texto, tipo) {
+  let msg = document.getElementById('booking-msg');
+  if (!msg) {
+    msg = document.createElement('div');
+    msg.id = 'booking-msg';
+    const form = document.querySelector('form');
+    form.parentNode.insertBefore(msg, form.nextSibling);
+  }
+  msg.textContent = texto;
+  msg.style.cssText = `
+    margin-top: 1rem;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    background: ${tipo === 'sucesso' ? '#d1fae5' : '#fee2e2'};
+    color: ${tipo === 'sucesso' ? '#065f46' : '#991b1b'};
+    border: 1px solid ${tipo === 'sucesso' ? '#6ee7b7' : '#fca5a5'};
+  `;
+  setTimeout(() => { msg.textContent = ''; msg.style.cssText = ''; }, 6000);
+}
