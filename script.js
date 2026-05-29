@@ -37,7 +37,13 @@ window.handleBooking = async function (e) {
     btn.textContent = 'Redirecionando...';
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
     await addDoc(collection(db, "agendamentos"), {
       nome,
@@ -50,8 +56,3 @@ window.handleBooking = async function (e) {
 
   } catch (error) {
     console.error(error);
-    alert("Erro ao salvar agendamento.");
-  }
-
-  btn.textContent = original;
-};
