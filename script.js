@@ -7,7 +7,7 @@ import {
   where
 } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js";
 
-window.handleBooking = async function (e) {
+async function handleBooking(e) {
   e.preventDefault();
 
   const btn = e.target.querySelector('button[type=submit]');
@@ -58,7 +58,7 @@ window.handleBooking = async function (e) {
   }
 
   btn.textContent = original;
-};
+}
 
 function mostrarMensagem(texto, tipo) {
   let msg = document.getElementById('booking-msg');
@@ -81,3 +81,5 @@ function mostrarMensagem(texto, tipo) {
   `;
   setTimeout(() => { msg.textContent = ''; msg.style.cssText = ''; }, 6000);
 }
+
+document.getElementById('booking-form').addEventListener('submit', handleBooking);
