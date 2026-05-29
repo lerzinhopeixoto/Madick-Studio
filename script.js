@@ -26,6 +26,8 @@ window.handleBooking = async function (e) {
     alert("Preencha todos os campos obrigatórios.");
     return;
   }
+  
+alert("Tentando salvar no Firebase...");
 
   try {
     await addDoc(collection(db, "agendamentos"), {
