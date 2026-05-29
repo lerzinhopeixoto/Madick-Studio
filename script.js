@@ -54,5 +54,10 @@ window.handleBooking = async function (e) {
       criadoEm: new Date()
     });
 
-  } catch (error) {
+   } catch (error) {
     console.error(error);
+    alert("Erro ao salvar agendamento.");
+  }
+
+  btn.textContent = original;
+};
