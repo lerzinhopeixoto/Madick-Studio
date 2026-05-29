@@ -27,8 +27,6 @@ window.handleBooking = async function (e) {
     return;
   }
 
-alert("Tentando salvar no Firebase...");
-
   try {
     await addDoc(collection(db, "agendamentos"), {
       nome,
