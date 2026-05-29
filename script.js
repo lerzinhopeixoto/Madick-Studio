@@ -1,12 +1,8 @@
 import { db } from './firebase.js';
-console.log("Firebase conectado!", db);
 import {
   collection,
   addDoc
-}from "https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js";
-console.log("Firebase carregado");
-console.log("DB:", db);
-
+} from "https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js";
 
 const WHATSAPP_NUMBER = '5511992037912';
 
@@ -28,17 +24,7 @@ window.handleBooking = async function (e) {
   }
 
   try {
-    await addDoc(collection(db, "agendamentos"), {
-      nome,
-      telefone: tel,
-      data,
-      horario,
-      servico,
-      criadoEm: new Date()
-    });
-
-    const dataFormatada = new Date(data + 'T12:00:00')
-      .toLocaleDateString('pt-BR');
+    const dataFormatada = new Date(data + 'T12:00:00').toLocaleDateString('pt-BR');
 
     const msg = `✂️ *Agendamento - Barbearia Madick*
 
@@ -48,12 +34,19 @@ window.handleBooking = async function (e) {
 🕐 Horário: ${horario}
 💈 Serviço: ${servico}`;
 
-btn.textContent = 'Redirecionando...';
+    btn.textContent = 'Redirecionando...';
 
-const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-window.open(url, '_blank');
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
 
-   
+    await addDoc(collection(db, "agendamentos"), {
+      nome,
+      telefone: tel,
+      data,
+      horario,
+      servico,
+      criadoEm: new Date()
+    });
 
   } catch (error) {
     console.error(error);
